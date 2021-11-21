@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d"); //context 는 canvas 안에서 픽셀을 �
 const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
-const saveBtn = document.getElementById("JsSave");
+const saveBtn = document.getElementById("jsSave");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 700;
@@ -85,8 +85,12 @@ function handleCM(event) {
   event.preventDefault();
 }
 
-function handleSaveClick(){
-    
+function handleSaveClick() {
+  const image = canvas.toDataURL();
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "PaintJs[😎]";
+  link.click();
 }
 
 if (canvas) {
